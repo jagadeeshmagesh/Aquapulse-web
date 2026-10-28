@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaPulse — Continuous water treatment intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo"><span>Aqua<span class="pulse">Pulse</span></span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#modules">Platform</a>
+        <a href="#pipeline">How it works</a>
+        <a href="#plans">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav-cta">Request a demo</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Water treatment, monitored continuously</p>
+      <h1>Your lab checks the water twice a day. AquaPulse checks it every second.</h1>
+      <p class="lede">Live sensor data, AI-recommended dosing, and instant fault alerts — so operators see a problem while there's still time to act on it, not after the next test comes back.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn-primary">Request a demo</a>
+        <a href="#modules" class="btn-ghost">See the platform</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">PLANT_04 — CLARIFIER LINE</span>
+        <span class="live-dot">LIVE</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-label">pH</div><div class="metric-value" id="mPh">7.21</div></div>
+        <div class="metric"><div class="metric-label">Turbidity</div><div class="metric-value" id="mTurb">0.34<span class="unit">NTU</span></div></div>
+        <div class="metric"><div class="metric-label">Free chlorine</div><div class="metric-value" id="mChlor">1.12<span class="unit">mg/L</span></div></div>
+        <div class="metric"><div class="metric-label">Flow rate</div><div class="metric-value" id="mFlow">842<span class="unit">m³/h</span></div></div>
+      </div>
+      <div class="trace-wrap">
+        <div class="trace-label">Chlorine residual — last 60 min</div>
+        <svg viewBox="0 0 320 60" width="100%" height="60" preserveAspectRatio="none">
+          <polyline id="tracePoly" fill="none" stroke="#3FE1C4" stroke-width="2"
+            points="0,34 20,30 40,33 60,26 80,29 100,22 120,25 140,18 160,24 180,20 200,27 220,23 240,31 260,26 280,34 300,30 320,26"/>
+        </svg>
+      </div>
+      <div class="status-line" id="statusLine"><span class="sq"></span><span id="statusText">All parameters within range</span></div>
+    </div>
+  </div>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- ABOUT / ABSTRACT -->
+  <section id="about" class="tight">
+    <div class="wrap problem">
+      <div>
+        <h2>What AquaPulse is</h2>
+        <p style="color:var(--text-dim); font-size:16px; line-height:1.65;">AquaPulse is an AI-powered platform that gives water treatment plants continuous visibility instead of the periodic snapshot a lab schedule allows. It reads every sensor in the plant, recommends the chemical dose current conditions call for, and catches equipment problems while they're still small.</p>
+        <ul>
+          <li><span class="mk">→</span> Continuous monitoring closes the gap between one lab check and the next.</li>
+          <li><span class="mk">→</span> Predictive dosing and fault detection turn maintenance from reactive to proactive.</li>
+          <li><span class="mk">→</span> Every reading feeds straight into the compliance record, so reporting is never a separate task.</li>
+        </ul>
+      </div>
+      <div class="chart-card">
+        <div class="panel-head" style="border-bottom:1px solid var(--line-soft); margin-bottom:16px; padding-bottom:12px;">
+          <span class="panel-title">AT A GLANCE</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:14px; color:var(--text-dim);">What it monitors</span>
+            <span style="font-size:14px; color:var(--text); text-align:right;">pH, turbidity, chlorine, flow, pressure</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:14px; color:var(--text-dim);">What it decides</span>
+            <span style="font-size:14px; color:var(--text); text-align:right;">Chemical dose, fault risk, alert priority</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:14px; color:var(--text-dim);">What it produces</span>
+            <span style="font-size:14px; color:var(--text); text-align:right;">Dashboards, alerts, compliance reports</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:14px; color:var(--text-dim);">Built for</span>
+            <span style="font-size:14px; color:var(--text); text-align:right;">Municipal, industrial &amp; wastewater plants</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="wrap problem">
+      <div>
+        <h2>Between lab checks, a lot can happen</h2>
+        <p style="color:var(--text-dim); font-size:16px; line-height:1.65;">Most plants still confirm water quality with samples taken a few times a day. Chemical doses are set by experience, not by what the water is doing right now.</p>
+        <ul>
+          <li><span class="mk">→</span> Manual dosing wastes chemicals when conditions are better than assumed, or under-treats when they've quietly worsened.</li>
+          <li><span class="mk">→</span> A drifting pump or fouled sensor can run for hours before anyone notices.</li>
+          <li><span class="mk">→</span> By the time a contamination event shows up in a lab result, the water has already moved on.</li>
+        </ul>
+      </div>
+      <div class="chart-card">
+        <svg viewBox="0 0 480 220" width="100%" height="auto">
+          <!-- gridlines -->
+          <g stroke="#1E4652" stroke-width="1">
+            <line x1="0" y1="40" x2="480" y2="40"/>
+            <line x1="0" y1="90" x2="480" y2="90"/>
+            <line x1="0" y1="140" x2="480" y2="140"/>
+            <line x1="0" y1="190" x2="480" y2="190"/>
+          </g>
+          <!-- dip zone -->
+          <rect x="200" y="10" width="90" height="185" fill="#F0A63C" opacity="0.08"/>
+          <!-- continuous AquaPulse line -->
+          <polyline fill="none" stroke="#3FE1C4" stroke-width="2.5"
+            points="0,95 40,90 80,88 120,92 160,86 200,80 220,120 240,150 260,145 280,115 320,90 360,85 400,88 440,84 480,86"/>
+          <!-- lab check points -->
+          <g fill="#6C8C90">
+            <circle cx="20" cy="93" r="4"/>
+            <circle cx="160" cy="86" r="4"/>
+            <circle cx="320" cy="90" r="4"/>
+            <circle cx="460" cy="85" r="4"/>
+          </g>
+          <g stroke="#2A5560" stroke-width="1" stroke-dasharray="3,3">
+            <line x1="20" y1="93" x2="20" y2="205"/>
+            <line x1="160" y1="86" x2="160" y2="205"/>
+            <line x1="320" y1="90" x2="320" y2="205"/>
+            <line x1="460" y1="85" x2="460" y2="205"/>
+          </g>
+        </svg>
+        <div class="chart-caption">
+          <span>— Lab sample times</span>
+          <span style="color:#3FE1C4;">— Continuous AquaPulse reading</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- MODULES -->
+  <section id="modules">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>One system, every part of the plant</h2>
+        <p>Sensors, dosing, maintenance, and paperwork usually live in separate places. AquaPulse puts them behind a single feed.</p>
+      </div>
+
+      <div class="module-row">
+        <div class="m-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3.5 4.5-5.5 7.6-5.5 10a5.5 5.5 0 0 0 11 0c0-2.4-2-5.5-5.5-10Z"/></svg>
+        </div>
+        <div>
+          <p class="m-title">Sensor &amp; water quality monitoring</p>
+          <p class="m-desc">Streams pH, turbidity, chlorine, and flow continuously from every point in the plant, in one place.</p>
+        </div>
+        <span class="m-tag">Live</span>
+      </div>
+
+      <div class="module-row">
+        <div class="m-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v5l5 9a2 2 0 0 1-2 3H6a2 2 0 0 1-2-3l5-9V3Z"/><path d="M8 14h8"/></svg>
+        </div>
+        <div>
+          <p class="m-title">Chemical dose optimization</p>
+          <p class="m-desc">Recommends the exact dose current conditions call for, instead of a fixed daily schedule.</p>
+        </div>
+        <span class="m-tag">AI-recommended</span>
+      </div>
+
+      <div class="module-row">
+        <div class="m-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.5 3.5a3 3 0 0 0 4.24 4.24l3.3 3.3a1.5 1.5 0 0 1-2.12 2.12l-3.3-3.3A3 3 0 0 0 8.4 13.6l-4.2 4.2a2 2 0 1 0 2.83 2.83l4.2-4.2"/></svg>
+        </div>
+        <div>
+          <p class="m-title">Equipment fault detection</p>
+          <p class="m-desc">Flags a pump, valve, or sensor drifting out of spec before it causes downtime.</p>
+        </div>
+        <span class="m-tag">Predictive</span>
+      </div>
+
+      <div class="module-row">
+        <div class="m-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4a5 5 0 0 1 5 5c0 4.5 2 5.5 2 6.5H5c0-1 2-2 2-6.5a5 5 0 0 1 5-5Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+        </div>
+        <div>
+          <p class="m-title">Predictive alerts &amp; notifications</p>
+          <p class="m-desc">Reaches the operator on shift while there's still time to respond, not after the fact.</p>
+        </div>
+        <span class="m-tag">Real-time</span>
+      </div>
+
+      <div class="module-row">
+        <div class="m-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg>
+        </div>
+        <div>
+          <p class="m-title">Digital twin simulation</p>
+          <p class="m-desc">Tests a dosing or maintenance change against a model of the plant before it happens for real.</p>
+        </div>
+        <span class="m-tag">Simulated</span>
+      </div>
+
+      <div class="module-row">
+        <div class="m-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>
+        </div>
+        <div>
+          <p class="m-title">Compliance reporting</p>
+          <p class="m-desc">Assembles the regulatory report automatically, from the same data operators already trust.</p>
+        </div>
+        <span class="m-tag">Automated</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- PIPELINE -->
+  <section id="pipeline">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How the data gets from a sensor to a decision</h2>
+        <p>A straight line from the field to the dashboard, built to keep running at plant scale.</p>
+      </div>
+      <div class="pipeline">
+        <div class="p-step">
+          <div class="p-num">1</div>
+          <p class="p-title">Field sensors</p>
+          <p class="p-desc">pH, turbidity, chlorine, flow, pressure</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">2</div>
+          <p class="p-title">Edge gateway</p>
+          <p class="p-desc">Reads and forwards site instruments</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">3</div>
+          <p class="p-title">Kafka / MQTT</p>
+          <p class="p-desc">Streams readings in real time</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">4</div>
+          <p class="p-title">AI engine</p>
+          <p class="p-desc">Python + FastAPI dosing &amp; fault models</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">5</div>
+          <p class="p-title">TimescaleDB / InfluxDB</p>
+          <p class="p-desc">Stores every reading for traceability</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">6</div>
+          <p class="p-title">Dashboard &amp; reports</p>
+          <p class="p-desc">React interface, alerts, compliance exports</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- STATS -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">15–20%</div>
+          <div class="stat-label">Lower chemical cost from demand-based dosing</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Minutes</div>
+          <div class="stat-label">Not hours, to detect an equipment fault</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Continuous monitoring between lab checks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- COMPLIANCE -->
+  <section id="compliance">
+    <div class="wrap problem">
+      <div class="chart-card" style="order:2;">
+        <div class="panel-head" style="border-bottom:1px solid var(--line-soft); margin-bottom:14px; padding-bottom:12px;">
+          <span class="panel-title">COMPLIANCE_LOG.csv</span>
+          <span style="font-size:12px; color:var(--text-mute); font-family:'IBM Plex Mono',monospace;">auto-generated</span>
+        </div>
+        <div class="mono" style="font-size:12.5px; color:var(--text-dim); display:flex; flex-direction:column; gap:12px;">
+          <div style="display:grid; grid-template-columns:118px 1fr 62px; gap:14px;"><span>2026-09-01 06:00</span><span>Turbidity, chlorine, pH — within limits</span><span style="color:#3FE1C4;">✓ filed</span></div>
+          <div style="display:grid; grid-template-columns:118px 1fr 62px; gap:14px;"><span>2026-09-02 06:00</span><span>Turbidity, chlorine, pH — within limits</span><span style="color:#3FE1C4;">✓ filed</span></div>
+          <div style="display:grid; grid-template-columns:118px 1fr 62px; gap:14px;"><span>2026-09-03 06:00</span><span>Chlorine dose adjusted — flagged, reviewed</span><span style="color:var(--amber);">✓ filed</span></div>
+          <div style="display:grid; grid-template-columns:118px 1fr 62px; gap:14px;"><span>2026-09-04 06:00</span><span>Turbidity, chlorine, pH — within limits</span><span style="color:#3FE1C4;">✓ filed</span></div>
+        </div>
+      </div>
+      <div style="order:1;">
+        <h2>The report writes itself</h2>
+        <p style="color:var(--text-dim); font-size:16px; line-height:1.65;">Every reading, dose, and fault is already on record. When it's time to file, AquaPulse turns that same history into the regulatory report — no re-entry, no end-of-month scramble.</p>
+        <ul>
+          <li><span class="mk">→</span> Full traceability from raw sensor reading to filed report.</li>
+          <li><span class="mk">→</span> Flags exceptions automatically, with the context an inspector will ask for.</li>
+          <li><span class="mk">→</span> Ready to export the moment a regulator asks for it.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- SECURITY & RELIABILITY -->
+  <section id="security">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Built to keep running, and to keep your data honest</h2>
+        <p>A plant can't afford a monitoring system that goes quiet. AquaPulse is designed around that constraint from the edge gateway up.</p>
+      </div>
+      <div class="sec-grid">
+        <div class="sec-card">
+          <div class="m-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          </div>
+          <p class="sec-title">Keeps logging offline</p>
+          <p class="sec-desc">The edge gateway buffers readings through a connectivity drop and syncs automatically the moment the link returns — no gap in the record.</p>
+        </div>
+        <div class="sec-card">
+          <div class="m-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          </div>
+          <p class="sec-title">Encrypted end to end</p>
+          <p class="sec-desc">Sensor data is encrypted in transit from the gateway and at rest in the database — the same record a regulator sees is the one that was captured.</p>
+        </div>
+        <div class="sec-card">
+          <div class="m-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1-3.5 4-5.5 7-5.5s6 2 7 5.5"/></svg>
+          </div>
+          <p class="sec-title">Role-based access</p>
+          <p class="sec-desc">Operators, supervisors, and auditors each see what's relevant to them, and every change to a setting is attributed to a person.</p>
+        </div>
+        <div class="sec-card">
+          <div class="m-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 5v7h7"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <p class="sec-title">Built for uptime</p>
+          <p class="sec-desc">Redundant stream processing and automatic failover keep monitoring running through a node restart or deployment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- INTEGRATIONS -->
+  <section class="tight">
+    <div class="wrap problem" style="align-items:center;">
+      <div>
+        <h2>Fits next to what the plant already runs</h2>
+        <p style="color:var(--text-dim); font-size:16px; line-height:1.65;">AquaPulse doesn't ask a plant to rip out its instrumentation. The edge gateway speaks the protocols already running on the floor, and pushes data onward to whatever the team already uses to be notified.</p>
+      </div>
+      <div>
+        <p class="trace-label" style="margin-bottom:12px;">Field &amp; SCADA protocols</p>
+        <div class="users-row" style="margin-bottom:22px;">
+          <span class="user-tag">Modbus TCP/RTU</span>
+          <span class="user-tag">OPC-UA</span>
+          <span class="user-tag">4–20 mA / analog I/O</span>
+          <span class="user-tag">MQTT</span>
+        </div>
+        <p class="trace-label" style="margin-bottom:12px;">Alerting &amp; export</p>
+        <div class="users-row">
+          <span class="user-tag">Email &amp; SMS</span>
+          <span class="user-tag">Webhooks</span>
+          <span class="user-tag">CSV / PDF export</span>
+          <span class="user-tag">REST API</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- USERS -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:28px;">
+        <h2>Built for the people running the plant</h2>
+      </div>
+      <div class="users-row">
+        <span class="user-tag">Municipal water utilities</span>
+        <span class="user-tag">Industrial treatment facilities</span>
+        <span class="user-tag">Wastewater treatment plants</span>
+        <span class="user-tag">Environmental regulatory bodies</span>
+        <span class="user-tag">Water infrastructure operators</span>
+        <span class="user-tag">Desalination plants</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- PLANS -->
+  <section id="plans">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>One platform, sized to the plant</h2>
+        <p>Every tier gets the same monitoring core. What scales is how many lines, plants, and people it covers.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <p class="plan-name">Starter</p>
+          <p class="plan-for">A single plant or treatment line</p>
+          <ul class="plan-list">
+            <li>Live sensor monitoring &amp; dashboards</li>
+            <li>Chemical dose recommendations</li>
+            <li>Equipment fault alerts</li>
+            <li>Standard compliance reports</li>
+          </ul>
+          <a href="#contact" class="btn-ghost plan-cta">Contact sales</a>
+        </div>
+        <div class="plan-card featured">
+          <p class="plan-tag">Most common</p>
+          <p class="plan-name">Growth</p>
+          <p class="plan-for">Multiple plants or treatment lines</p>
+          <ul class="plan-list">
+            <li>Everything in Starter</li>
+            <li>Multi-site dashboard &amp; comparisons</li>
+            <li>Digital twin simulation</li>
+            <li>Role-based access control</li>
+            <li>Priority alert routing (SMS + webhook)</li>
+          </ul>
+          <a href="#contact" class="btn-primary plan-cta">Contact sales</a>
+        </div>
+        <div class="plan-card">
+          <p class="plan-name">Enterprise</p>
+          <p class="plan-for">Utilities &amp; multi-region operators</p>
+          <ul class="plan-list">
+            <li>Everything in Growth</li>
+            <li>Custom regulatory report formats</li>
+            <li>Dedicated uptime SLA</li>
+            <li>On-prem / private-cloud deployment</li>
+          </ul>
+          <a href="#contact" class="btn-ghost plan-cta">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- FAQ -->
+  <section class="tight" id="faq">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:36px;">
+        <h2>Questions plant managers ask first</h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item open">
+          <button class="faq-q" aria-expanded="true">
+            <span>Do we need to replace our existing sensors?</span>
+            <span class="faq-plus">—</span>
+          </button>
+          <div class="faq-a"><p>Usually not. The edge gateway reads from the instrumentation already installed over Modbus, OPC-UA, or standard analog I/O, so AquaPulse sits alongside what's already measuring the water.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What happens if the plant loses internet connectivity?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p>The edge gateway keeps logging locally through the outage and syncs the backlog automatically once connectivity is restored, so the compliance record has no gap.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Can it generate the specific report our regulator requires?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p>Standard tiers cover common regulatory formats out of the box. Enterprise plans include custom report templates built around what your regulator specifically asks for.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Does this replace plant operators?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p>No — it gives them better information sooner. Dosing recommendations, fault alerts, and reports still pass through an operator before anything changes at the plant.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How long does a typical deployment take?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a"><p>A single-line pilot is usually live within a few weeks of the edge gateway being installed on site, once existing instrumentation is mapped.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- CTA -->
+  <div class="wrap" id="contact">
+    <div class="cta-section">
+      <div>
+        <h2>See your plant's data the way it should look</h2>
+        <p>Bring one week of sensor logs and we'll show you what AquaPulse would have caught.</p>
+      </div>
+      <a href="mailto:hello@aquapulse.io" class="btn-primary">Request a demo</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo"><span>Aqua<span class="pulse">Pulse</span></span></a>
+        <p class="sub mono" style="margin-top:8px;">Accuracy · Safety · Sustainability</p>
+      </div>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#modules">Platform</a>
+        <a href="#security">Security</a>
+        <a href="#plans">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:hello@aquapulse.io">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 AquaPulse. Built for safer, more efficient water treatment.</span>
+      <span class="mono">Python · FastAPI · React · TypeScript · Kafka/MQTT · TimescaleDB</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
